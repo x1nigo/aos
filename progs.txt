@@ -19,6 +19,7 @@ pipewire
 pipewire-pulse
 wireplumber
 alsa-ucm-conf
+pulsemixer
 sof-firmware
 bluez
 bluez-openrc
