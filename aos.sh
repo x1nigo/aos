@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 dotfilesrepo="https://github.com/x1nigo/dotfiles.git"
-srcdir="/home/$user/.local/src"
-mkdir -p /home/$user/.local/src
 
 intro() {
 	echo "
@@ -21,7 +19,7 @@ read -r enter
 }
 
 user_info() {
-	printf "%s" "Which user shall this apply to? "
+	printf "%s" "To which user shall this apply to? "
  	read -r user
 }
 
@@ -41,6 +39,8 @@ install_pkgs() {
 }
 
 compile_pkgs() {
+	srcdir="/home/$user/.local/src"
+	mkdir -p /home/$user/.local/src
 	for dir in $(echo "dwm st dmenu"); do
 		git -C "$srcdir" clone https://github.com/x1nigo/$dir.git
 		cd "$srcdir"/"$dir" && make clean install
