@@ -10,6 +10,7 @@ xrandr
 xsetroot
 gcc
 bc
+fzf
 xclip
 
 # Browser
