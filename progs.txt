@@ -3,11 +3,13 @@ nsxiv
 zathura
 zathura-pdf-mupdf
 mpv
+make
 xdotool
 xdg-utils
 xrandr
 gcc
 bc
+xclip
 
 # Browser
 firefox
@@ -16,6 +18,7 @@ firefox
 pipewire
 pipewire-pulse
 wireplumber
+alsa-ucm-conf
 sof-firmware
 bluez
 bluez-openrc
