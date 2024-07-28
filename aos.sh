@@ -29,7 +29,7 @@ set_xorg() {
 }
 
 install_pkgs() {
-	sed progs.txt '/^#/d;/^$/d' > /tmp/progs.txt
+	sed '/^#/d;/^$/d' progs.txt > /tmp/progs.txt
 	while IFS=$'\n' read -r prog; do
 		apk add "$prog"
 	done < /tmp/progs.txt
