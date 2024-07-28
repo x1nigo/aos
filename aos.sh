@@ -53,7 +53,7 @@ get_dotfiles() {
 	cd "$srcdir"/dotfiles
 	shopt -s dotglob && cp -vr * /home/$user/
 
-	ln -s /home/$user/.config/shell/shrc /home/$user/.ashrc
+	ln -s /home/$user/.config/shell/shrc /home/$user/.shrc
 	ln -s /home/$user/.config/nvim/init.vim /home/$user/.vimrc
 }
 
