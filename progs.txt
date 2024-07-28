@@ -27,5 +27,5 @@ pipewire-spa-bluez
 # Libraries
 musl-dev
 libx11-dev
-libxft=dev
+libxft-dev
 libxinerama-dev
