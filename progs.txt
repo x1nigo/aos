@@ -1,0 +1,28 @@
+# General
+nsxiv
+zathura
+zathura-pdf-mupdf
+mpv
+xdotool
+xdg-utils
+xrandr
+gcc
+bc
+
+# Browser
+firefox
+
+# Audio
+pipewire
+pipewire-pulse
+wireplumber
+sof-firmware
+bluez
+bluez-openrc
+pipewire-spa-bluez
+
+# Libraries
+musl-dev
+libx11-dev
+libxft=dev
+libxinerama-dev
