@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 dotfilesrepo="https://github.com/x1nigo/dotfiles.git"
-srcdir="/home/*/.local/src"
-mkdir -p /home/*/.local/src
+srcdir="/home/$user/.local/src"
+mkdir -p /home/$user/.local/src
 
 intro() {
 	echo "
@@ -18,6 +18,11 @@ Note: This should be run in the /root directory.
 Once ready, just hit <ENTER>. Otherwise, hit <CTRL-C> to quit.
 "
 read -r enter
+}
+
+user_info() {
+	printf "%s" "Which user shall this apply to? "
+ 	read -r user
 }
 
 set_privileges() {
@@ -46,10 +51,10 @@ get_dotfiles() {
 	git -C "$srcdir" clone "$dotfilesrepo"
 	cd "$srcdir"/dotfiles
 	shopt -s dotglob
-	cp -vr  * /home/*/
+	cp -vr * /home/$user/
 
-	ln -s /home/*/.config/shell/shrc /home/*/.ashrc
-	ln -s /home/*/.config/nvim/init.vim /home/*/.vimrc
+	ln -s /home/$user/.config/shell/shrc /home/$user/.ashrc
+	ln -s /home/$user/.config/nvim/init.vim /home/$user/.vimrc
 }
 
 update_udev() {
@@ -67,10 +72,12 @@ cleanup() {
 	cd
 	rm -r ~/aos
 	rm -r "$srcdir"/dotfiles
-	rm -r /home/*/.git
-	rm -r /home/*/README.md
-	mkdir -p /home/*/.local/run
-	find /home/*/.local/bin -type f -exec chmod +x {} \;
+	rm -r /home/$user/.git
+	rm -r /home/$user/README.md
+	mkdir -p /home/$user/.local/run
+	find /home/$user/.local/bin -type f -exec chmod +x {} \;
+ 	shopt -s dotglob
+  	chown -R $user:wheel /home/$user
 }
 
 outro() {
@@ -88,6 +95,7 @@ reboot
 
 main() {
 	intro
+ 	user_info
 	set_privileges
 	set_xorg
 	install_pkgs
