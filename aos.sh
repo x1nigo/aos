@@ -50,8 +50,7 @@ compile_pkgs() {
 get_dotfiles() {
 	git -C "$srcdir" clone "$dotfilesrepo"
 	cd "$srcdir"/dotfiles
-	shopt -s dotglob
-	cp -vr * /home/$user/
+	shopt -s dotglob && cp -vr * /home/$user/
 
 	ln -s /home/$user/.config/shell/shrc /home/$user/.ashrc
 	ln -s /home/$user/.config/nvim/init.vim /home/$user/.vimrc
@@ -74,10 +73,8 @@ cleanup() {
 	rm -r "$srcdir"/dotfiles
 	rm -r /home/$user/.git
 	rm -r /home/$user/README.md
-	mkdir -p /home/$user/.local/run
 	find /home/$user/.local/bin -type f -exec chmod +x {} \;
- 	shopt -s dotglob
-  	chown -R $user:wheel /home/$user
+ 	shopt -s dotglob && chown -R $user:wheel /home/$user
 }
 
 outro() {
