@@ -38,7 +38,7 @@ install_pkgs() {
 compile_pkgs() {
 	for dir in $(echo "dwm st dmenu"); do
 		git -C "$srcdir" clone https://github.com/x1nigo/$dir.git
-		cd "$srcdir"/"$dir" && doas make clean install
+		cd "$srcdir"/"$dir" && make clean install
 	done
 }
 
