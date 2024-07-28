@@ -21,6 +21,7 @@ read -r enter
 user_info() {
 	printf "%s" "To which user shall this apply to? "
  	read -r user
+    	addgroup $user input
 }
 
 set_privileges() {
